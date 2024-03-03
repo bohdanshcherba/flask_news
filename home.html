@@ -9,17 +9,27 @@
 
 </head>
 <body>
-    <header>News</header>
+    <header>
+        <div>
+
+        </div>
+        <div>
+       <h1>News</h1> 
+    </div>
+    <div>
+        <a href="/auth/sign-in">Login</a>
+    </div>
+</header>
     <main>
         <section>
             <h1>Sport</h1>
             <div class="articles">
                 {% for new in news %}
-                <a class="article" href="/home/{{new['id']}}">
+                <a class="article" href="/home/{{new[0]}}">
                     <img src="https://t4.ftcdn.net/jpg/01/67/74/79/360_F_167747932_NE1da5cf9FM30QExtlFjbmk9ypItoJl2.jpg" alt="">
                     <div class="content">
-                        <h2>{{new['title']}}</h2>
-                        <p>{{new['content']}}</p>
+                        <h2>{{new[1]}}</h2>
+                        <p>{{new[2]}}</p>
                     </div>
                 </a>
                 {% endfor %}
@@ -28,6 +38,36 @@
         <section>
             <h1>Polytics</h1>
         </section>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        №
+                    </th>
+                    <th>
+                        назва команди
+                    </th>
+                    <th>
+                        очки
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in table_data %}
+                <tr>
+                    <th>
+                        {{item[1]}}
+                    </th>
+                    <th>
+                        {{item[2]}}       
+                    </th>
+                    <th>
+                        {{item[3]}}
+                    </th>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
     </main>
 </body>
 </html>
